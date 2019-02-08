@@ -10,7 +10,7 @@ script:
   - yarn run coverage
 
 before_install:
-  -  i -g babel-preset-env mocha chai babel-cli istanbul coveralls pg yarn
+  - npm i -g babel-preset-env mocha chai babel-cli istanbul coveralls pg yarn
 
 before_script:
   - psql -c 'create database  ireporter;' -U postgres
