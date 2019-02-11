@@ -10,6 +10,9 @@ const sequelize = new Sequelize(process.env.DB_URL, { dialect: 'postgres' });
 const User = UserModel(sequelize);
 sequelize.sync();
 sequelize.authenticate()
-  .then(() => { console.log('Database connected'); })
+  .then(() => {
+    console.log('Database connected');
+    process.exit(0);
+  })
   .catch((error) => { console.log(error); });
 module.exports = { User };
