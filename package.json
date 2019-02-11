@@ -21,8 +21,8 @@
     "clean": "rimraf dist coverage",
     "build": "yarn run clean && babel -d ./dist ./ -s --ignore node_modules,UI",
     "start-prod": "npm run build && nodemon ./dist/server.js",
-    "coverage": "istanbul cover  ./node_modules/mocha/bin/_mocha -- -R spec ./dist/test/*.js --exit",
-    "create-db": "npm run build && node dist/api/db/db.js",
+    "coverage": "yarn run build && istanbul cover  ./node_modules/mocha/bin/_mocha -- -R spec ./dist/test/*.js --exit --timeout 10000",
+    "create-db": "npm run build && node dist/config/database.js",
     "heroku-postbuild": "npm run create-db"
   },
   "repository": {
