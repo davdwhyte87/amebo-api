@@ -5,6 +5,7 @@ services:
 - postgres
 
 script:
+  - yarn start
   - yarn run build
   - yarn run coverage
 
