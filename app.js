@@ -5,15 +5,13 @@ import expressValidator from 'express-validator';
 import dotenv from 'dotenv';
 
 // import database
-import sequelize from './config/database';
+
 // import routers
 import userRouter from './routes/user';
 
 
 // connect to database
-sequelize.authenticate()
-  .then(() => { console.log('Database connected'); })
-  .catch((error) => { console.log(error); });
+
 
 dotenv.config();
 const app = express();

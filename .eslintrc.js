@@ -18,6 +18,7 @@ module.exports = {
         "linebreak-style": ["error", "unix"],
         "consistent-return":["off"],
         "prefer-template": ["off"],
-        "class-methods-use-this": ["off"]
+        "class-methods-use-this": ["off"],
+        "arrow-body-style": ["off"]
     }
 };
