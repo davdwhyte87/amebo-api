@@ -5,15 +5,15 @@ services:
 - postgres
 
 script:
+  - yarn run create-db
   - yarn run build
-  - yarn test
   - yarn run coverage
 
 before_install:
-  - npm i -g babel-preset-env mocha chai babel-cli istanbul coveralls pg yarn
+  - npm i -g babel-preset-env sequelize pg-hstore mocha chai babel-cli istanbul coveralls pg yarn
 
 before_script:
-  - psql -c 'create database  ireporter;' -U postgres
+  - psql -c 'create database  piechat;' -U postgres
 
 after_script:
   - ./node_modules/coveralls/bin/coveralls.js < ./coverage/lcov.info  && npm run clean

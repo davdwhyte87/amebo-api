@@ -1,8 +1,11 @@
-import User from '../models/User';
+import Database from '../config/database';
 
-const create = () => {
+const { User } = Database;
+console.log(User);
+const create = (req, res) => {
   User.findAll().then((users) => {
     console.log(users);
+    res.status(200).json({ status: 200 });
   });
 };
 
