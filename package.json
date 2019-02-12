@@ -58,7 +58,8 @@
     "pg-hstore": "^2.3.2",
     "rimraf": "^2.6.2",
     "sendgrid": "^5.2.3",
-    "sequelize": "^4.42.0"
+    "sequelize": "^4.42.0",
+    "sequelize-cli": "^5.4.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
