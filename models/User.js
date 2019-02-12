@@ -1,11 +1,12 @@
 import Sequelize from 'sequelize';
+import sequelize from '../config/database';
 
-module.exports = (sequelize) => {
-  return sequelize.define('user', {
-    fistname: {
-      type: Sequelize.STRING,
-    },
-  }, {
-    freezeTableName: true,
-  });
-};
+
+const User = sequelize.define('user', {
+  fistname: {
+    type: Sequelize.STRING,
+  },
+}, {
+  freezeTableName: true,
+});
+module.exports = User;

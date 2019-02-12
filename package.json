@@ -16,11 +16,11 @@
   "description": "iReporter enables users  to bring any form of corruption to the notice of appropriate authorities and the general public",
   "main": ".eslintrc.js",
   "scripts": {
-    "start": "yarn run build && nodemon server.js --exec babel-node --presets env",
+    "start": "yarn run build && nodemon app.js --exec babel-node --presets env",
     "test": "yarn run build && mocha dist/test/*.js --exit --timeout 10000",
     "clean": "rimraf dist coverage",
     "build": "yarn run clean && babel -d ./dist ./ -s --ignore node_modules,UI",
-    "start-prod": "npm run build && nodemon ./dist/server.js",
+    "start-prod": "npm run build && nodemon ./dist/app.js",
     "coverage": "yarn run build && istanbul cover  ./node_modules/mocha/bin/_mocha -- -R spec ./dist/test/*.js --exit --timeout 10000",
     "create-db": "npm run build && node dist/config/database.js",
     "heroku-postbuild": "npm run create-db"
