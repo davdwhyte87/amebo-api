@@ -5,6 +5,7 @@ services:
 - postgres
 
 script:
+  - yarn sequelize db:migrate
   - yarn run build
   - yarn run coverage
 
