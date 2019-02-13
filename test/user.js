@@ -4,8 +4,6 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../app';
 
-import sequelize from '../config/database';
-
 chai.use(chaiHttp);
 const should = chai.should();
 
