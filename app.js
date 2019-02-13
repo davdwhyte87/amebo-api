@@ -12,7 +12,6 @@ import userRouter from './routes/user';
 
 // connect to database
 
-
 dotenv.config();
 const app = express();
 app.use(expressValidator());

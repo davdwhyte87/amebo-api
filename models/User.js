@@ -1,11 +1,6 @@
-import Sequelize from 'sequelize';
-
-module.exports = (sequelize) => {
-  return sequelize.define('user', {
-    fistname: {
-      type: Sequelize.STRING,
-    },
-  }, {
-    freezeTableName: true,
-  });
+module.exports = (sequelize, DataTypes) => {
+  const User = sequelize.define('User', {
+    name: DataTypes.STRING,
+  }, {});
+  return User;
 };

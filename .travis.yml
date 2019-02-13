@@ -5,12 +5,11 @@ services:
 - postgres
 
 script:
-  - yarn run create-db
-  - yarn run build
+  - yarn sequelize db:migrate
   - yarn run coverage
 
 before_install:
-  - npm i -g babel-preset-env sequelize pg-hstore mocha chai babel-cli istanbul coveralls pg yarn
+  - npm i -g babel-preset-env sequelize pg-hstore mocha chai babel-cli istanbul coveralls pg yarn sequelize-cli
 
 before_script:
   - psql -c 'create database  piechat;' -U postgres

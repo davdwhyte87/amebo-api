@@ -1,7 +1,13 @@
-import Database from '../config/database';
+import models from '../models/Index';
 
-const { User } = Database;
-console.log(User);
+const { User } = models;
+
+/**
+ * This function creates a user
+ * @param {Object} req - request object
+ * @param {Object} res - response object
+ * @returns {Object} - returns a response object
+ */
 const create = (req, res) => {
   User.findAll().then((users) => {
     console.log(users);
