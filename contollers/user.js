@@ -1,6 +1,4 @@
-import models from '../models/Index';
-
-const { User } = models;
+import User from '../models/User';
 
 /**
  * This function creates a user

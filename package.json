@@ -22,7 +22,7 @@
     "build": "yarn run clean && babel -d ./dist ./ -s --ignore node_modules,UI",
     "start-prod": "npm run build && nodemon ./dist/server.js",
     "coverage": "yarn run build && istanbul cover  ./node_modules/mocha/bin/_mocha -- -R spec ./dist/test/*.js --exit --timeout 10000",
-    "create-db": "npm run build && node dist/config/database.js",
+    "create-db": "npm run build && node dist/models/Init.js",
     "heroku-postbuild": "npm run create-db"
   },
   "repository": {
