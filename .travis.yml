@@ -8,7 +8,7 @@ script:
   - yarn run coverage
 
 before_install:
-  - npm i -g babel-preset-env sequelize pg-hstore mocha chai babel-cli istanbul coveralls pg yarn sequelize-cli
+  - npm i -g babel-preset-env sequelize pg-hstore mocha chai babel-cli istanbul coveralls pg yarn mongoose
 
 before_script:
   - psql -c 'create database  piechat;' -U postgres
