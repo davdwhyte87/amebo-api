@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
-
+import jwt from 'jsonwebtoken';
 import User from '../models/User';
 
 
@@ -22,9 +22,14 @@ const create = (req, res) => {
       password: hash,
     });
     user.save().then((userData) => {
+      const safeUserData = userData.password;
+      delete safeUserData.password;
+      const userToken = jwt.sign({
+        data: safeUserData,
+      }, process.env.JWT_SECRETE, { expiresIn: '24h' });
       return res.status(201).json({
         status: 201,
-        data: [{ id: userData.id, message: 'User created successfully' }],
+        data: [{ id: userData.id, message: 'User created successfully', token: userToken }],
       });
     })
       .catch((error) => {
