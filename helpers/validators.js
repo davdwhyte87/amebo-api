@@ -9,7 +9,7 @@ const validate = (method) => {
     case 'signup': {
       return [
         check.body('name', 'A valid name is required').exists()
-          .isString().isAlpha()
+          .isString()
           .isLength({ min: 5, max: 30 }),
         check.body('email', 'A valid email is required').exists()
           .isString()

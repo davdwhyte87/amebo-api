@@ -33,7 +33,7 @@ app.get('/hello', (req, res) => {
   res.send('hello mN');
 });
 // link routes with app
-app.use('/user', userRouter);
+app.use('/api/v1/user', userRouter);
 
 app.use(morgan('dev'));
 export default app;

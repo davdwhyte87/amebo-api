@@ -6,6 +6,6 @@ import handleValidation from '../helpers/handleValidation';
 
 const userRouter = express.Router();
 
-userRouter.post('/', validator('signup'), handleValidation, userController.create);
+userRouter.post('/signup', validator('signup'), handleValidation, userController.create);
 
 module.exports = userRouter;
