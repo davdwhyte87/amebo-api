@@ -7,5 +7,5 @@ import handleValidation from '../helpers/handleValidation';
 const userRouter = express.Router();
 
 userRouter.post('/signup', validator('signup'), handleValidation, userController.create);
-
+userRouter.post('/signin', userController.signIn);
 module.exports = userRouter;

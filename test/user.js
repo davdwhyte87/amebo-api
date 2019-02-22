@@ -53,3 +53,17 @@ describe('Tests for authentication', () => {
       });
   });
 });
+
+describe('Test for signin', () => {
+  it('should sign a user in', (done) => {
+    const user = {
+      email: 'johnsm@gmail.com',
+      password: '12345',
+    };
+    chai.request(app).post('/api/v1/user/signup').send(user)
+      .end((err, res) => {
+        res.should.have.status(400);
+        done();
+      });
+  });
+});
