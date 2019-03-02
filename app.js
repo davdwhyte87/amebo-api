@@ -11,12 +11,19 @@ import userRouter from './routes/user';
 
 dotenv.config();
 // connect to database
-try {
-  mongoose.connect(process.env.DB_URL, { useNewUrlParser: true });
-} catch (error) {
-  console.log(error);
-}
 
+/**
+ * This function trys to connect to a database
+ * @returns {null} - This function returns null
+ */
+async function connectDb() {
+  try {
+    await mongoose.connect(process.env.DB_URL, { useNewUrlParser: true });
+  } catch (error) {
+    console.log(error);
+  }
+}
+connectDb();
 
 const app = express();
 app.use(expressValidator());
