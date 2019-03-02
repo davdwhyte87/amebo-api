@@ -3,6 +3,7 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import sgMail from '@sendgrid/mail';
 import dotenv from 'dotenv';
+import '@babel/polyfill';
 
 import User from '../models/User';
 
