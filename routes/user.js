@@ -1,9 +1,11 @@
 import express from 'express';
 
 import userController from '../contollers/user';
+import validator from '../helpers/validators';
+import handleValidation from '../helpers/handleValidation';
 
 const userRouter = express.Router();
 
-userRouter.get('/', userController.create);
-
+userRouter.post('/signup', validator('signup'), handleValidation, userController.create);
+userRouter.post('/signin', userController.signIn);
 module.exports = userRouter;

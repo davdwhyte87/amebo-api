@@ -1,18 +1,30 @@
 import express from 'express';
 import morgan from 'morgan';
-// import bodyParser from 'body-parser';
+import bodyParser from 'body-parser';
 import expressValidator from 'express-validator';
 import dotenv from 'dotenv';
 
 // import database
-
+import mongoose from 'mongoose';
 // import routers
 import userRouter from './routes/user';
 
-
+dotenv.config();
 // connect to database
 
-dotenv.config();
+/**
+ * This function trys to connect to a database
+ * @returns {null} - This function returns null
+ */
+async function connectDb() {
+  try {
+    await mongoose.connect(process.env.DB_URL, { useNewUrlParser: true });
+  } catch (error) {
+    console.log(error);
+  }
+}
+connectDb();
+
 const app = express();
 app.use(expressValidator());
 app.use((req, res, next) => {
@@ -22,11 +34,19 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/hello', (req, res) => {
-  res.send('hello mN');
+// set view engine
+app.set('view engine', 'hjs');
+
+
+// allow app to get json data
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.get('/api/v1', (req, res) => {
+  return res.status(200).json({ status: 200, message: 'Welcome to Amebo Api' });
 });
 // link routes with app
-app.use('/user', userRouter);
+app.use('/api/v1/user', userRouter);
 
 app.use(morgan('dev'));
 export default app;

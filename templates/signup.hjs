@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Amebo</title>
+  </head>
+  <body>
+    <h4>Welcome to Amebo, your user activation code is, <i>{{name}}</i></h4> 
+  </body>
+</html>
