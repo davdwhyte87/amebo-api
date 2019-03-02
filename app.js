@@ -43,7 +43,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/api/v1', (req, res) => {
-  res.status().json({ status: 200, message: 'Welcome to Amebo Api' });
+  return res.status(200).json({ status: 200, message: 'Welcome to Amebo Api' });
 });
 // link routes with app
 app.use('/api/v1/user', userRouter);
