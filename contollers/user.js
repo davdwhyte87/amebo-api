@@ -2,9 +2,11 @@ import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import sgMail from '@sendgrid/mail';
+import dotenv from 'dotenv';
 
 import User from '../models/User';
 
+dotenv.config();
 
 /**
  * This function sends a mail to the user, with the users access code
