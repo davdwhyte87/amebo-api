@@ -20,7 +20,7 @@
     "start-dev": "babel-node server.js",
     "test": "mocha --require @babel/register --exit",
     "clean": "rimraf dist coverage ",
-    "build": "yarn run clean && babel ./ --out-dir ./dist --ignore node_modules",
+    "build": "yarn run clean && babel ./ --out-dir ./dist --ignore ./node_modules",
     "start-prod": "yarn run build && nodemon ./dist/server.js",
     "coverage": "yarn run build && nyc npm test && nyc report --reporter=text-lcov || coveralls"
   },
