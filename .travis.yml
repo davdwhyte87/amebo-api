@@ -2,17 +2,16 @@ language: node_js
 node_js:
   - "11.9.0"
 services: 
-- postgres
+- mongodb
 
 script:
-  - yarn sequelize db:migrate
   - yarn run coverage
 
 before_install:
-  - npm i -g babel-preset-env sequelize pg-hstore mocha chai babel-cli istanbul coveralls pg yarn sequelize-cli
+  - npm i -g babel-preset-env  mocha chai babel-cli istanbul coveralls  yarn mongoose
 
 before_script:
-  - psql -c 'create database  piechat;' -U postgres
+  
 
 after_script:
   - ./node_modules/coveralls/bin/coveralls.js < ./coverage/lcov.info  && npm run clean
