@@ -19,7 +19,7 @@ async function sendCodeEmail(email, code) {
     from: 'test@example.com',
     subject: 'Sending with SendGrid is Fun',
     text: 'and easy to do anywhere, even with Node.js',
-    html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+    html: '<h4>Thank you for signing up, your activation code is, ' + code + ' </h4>',
   };
   try {
     await sgMail.send(msg);
@@ -52,7 +52,8 @@ const create = (req, res) => {
       const userToken = jwt.sign({
         data: safeUserData,
       }, process.env.JWT_SECRETE, { expiresIn: '24h' });
-      sendCodeEmail();
+      // send user a mail
+      sendCodeEmail('kingstonwhyte87@gmail.com', 93904);
       return res.status(201).json({
         status: 201,
         data: [{ id: userData.id, message: 'User created successfully', token: userToken }],

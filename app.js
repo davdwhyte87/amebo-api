@@ -17,6 +17,7 @@ try {
   console.log(error);
 }
 
+
 const app = express();
 app.use(expressValidator());
 app.use((req, res, next) => {
@@ -25,6 +26,11 @@ app.use((req, res, next) => {
   res.header('Access-Control-Allow-Methods', '*');
   next();
 });
+
+// set view engine
+app.set('view engine', 'hjs');
+
+
 // allow app to get json data
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
